@@ -1,0 +1,41 @@
+public class ContactView
+{
+    public void ShowMenu()
+    {
+        Console.WriteLine();
+        Console.WriteLine("1. Добави контакт");
+        Console.WriteLine("2. Търси контакт");
+        Console.WriteLine("0. Изход");
+        Console.Write("Избор: ");
+    }
+
+    public string ReadChoice()
+    {
+        return Console.ReadLine() ?? "";
+    }
+
+    public string Ask(string prompt)
+    {
+        Console.Write(prompt + ": ");
+        return Console.ReadLine() ?? "";
+    }
+
+    public void ShowMessage(string message)
+    {
+        Console.WriteLine(message);
+    }
+
+    public void ShowContacts(List<Contact> contacts)
+    {
+        if (contacts.Count == 0)
+        {
+            Console.WriteLine("Няма намерени контакти.");
+            return;
+        }
+
+        foreach (var c in contacts)
+        {
+            Console.WriteLine(c.Name + " - " + c.Phone);
+        }
+    }
+}
